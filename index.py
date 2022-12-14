@@ -67,17 +67,17 @@ def prediction(y_train,x_train,x_test):
           y_predict.append(val)
         #   print(val)
     return y_predict
+
 y_prediction = prediction(y_train,x_train,x_test)
 # print(y_prediction)
 error = 0
 total = 0
 for i in range(len(y_prediction)):
-    error +=abs(y_prediction[i]-y_test[i])
-    total += y_test[i]
+    error +=float(abs(float(y_prediction[i])-float(y_test[i]))/y_test[i])
     
-avg = error/total
+avg = error/len(y_test)
 accuracy = 100-avg*100
-print('accuracy is')
+print('accuracy is',end=" ")
 print(accuracy)
 
 
